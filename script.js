@@ -57,6 +57,7 @@ function draw() {
     vertex(250, height / 5);
     vertex(300, height / 3);
     fill(pyramidSideColor);
+    beginShape();
     vertex(300, height / 3);
     vertex(250, height / 5);
     vertex(350, height / 3 - 30);
@@ -64,7 +65,7 @@ function draw() {
 
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
-    drawLtree();
+    //drawLtree();
   }
 /*
   // An example of recursively drawing an L-tree 
