@@ -7,11 +7,11 @@ const treeColor = "#3d1803";
 const leaveColor = "#233610";
 const sunColor = [254, 254, 254, 80]; // with opacity
 
-const pyramidColor = "af9071";
-const pyramidSideColor = "7e6d59";
-const skyColor = "b9d0e8";
-const groundColor = "af9d7f";
-const smallWallColor = "fefef8";
+const pyramidColor = "#af9071";
+const pyramidSideColor = "#7e6d59";
+const skyColor = "#b9d0e8";
+const groundColor = "#af9d7f";
+const smallWallColor = "#fefef8";
 
 function preload() {
     // runs before setup 
