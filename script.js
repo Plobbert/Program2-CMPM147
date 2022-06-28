@@ -2,7 +2,6 @@
 let seed = 12345;
 
 const grassColor = "#e1ac4a";
-const skyColor = "#cdd8e6";
 const hillColor = "#1e273f";
 const treeColor = "#3d1803";
 const leaveColor = "#233610";
