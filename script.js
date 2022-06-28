@@ -9,7 +9,7 @@ const sunColor = [254, 254, 254, 80]; // with opacity
 
 const pyramidColor = "#af9071";
 const pyramidSideColor = "#7e6d59";
-const skyColor = "#b9d0e8";
+const theSkyColor = "#b9d0e8";
 const groundColor = "#af9d7f";
 const smallWallColor = "#fefef8";
 
@@ -30,7 +30,7 @@ function draw() {
 
   noStroke();
 
-  fill(skyColor);
+  fill(theSkyColor);
   rect(0, 0, width, height / 2);
 
   // An example of making something respond to the mouse
