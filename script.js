@@ -44,9 +44,6 @@ function draw() {
   rect(0, height / 2, width, height / 2);
 
   // An example of drawing an irregular polygon
-  fill(pyramidColor);
-  beginShape();
-  vertex(100, height / 2 + 30);
   //const steps = 10;
   /*for (let i = 0; i < steps + 1; i++) {
     let x = (width * i) / steps;
@@ -54,20 +51,29 @@ function draw() {
       height / 2 - (random() * random() * random() * height) / 8 - height / 50;
     vertex(x, y);
   } */
-    vertex(250, height / 5);
-    vertex(300, height / 2 + 30);
-    endShape(CLOSE);
-    fill(pyramidSideColor);
-    beginShape();
-    vertex(300, height / 2 + 50);
-    vertex(250, height / 5);
-    vertex(350, height / 2 + 10);
-  endShape(CLOSE);
+
+    drawPyramidAt(100, 0);
+    drawPyramidAt(300, 30)
 
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
     //drawLtree();
   }
+
+    function drawPyramidAt(x, offset) {
+        fill(pyramidColor);
+        beginShape();
+        vertex(x, height / 2 + 30 + offset);
+        vertex(x + 150, height / 5 + offset);
+        vertex(x + 200, height / 2 + 30 + offset);
+        endShape(CLOSE);
+        fill(pyramidSideColor);
+        beginShape();
+        vertex(x + 200, height / 2 + 30 + offset);
+        vertex(x + 150, height / 5 + offset);
+        vertex(x + 250, height / 2 + 10 + offset);
+        endShape(CLOSE);
+    }
 /*
   // An example of recursively drawing an L-tree 
   function drawLtree() {
