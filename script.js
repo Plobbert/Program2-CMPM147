@@ -46,7 +46,7 @@ function draw() {
   // An example of drawing an irregular polygon
   fill(pyramidColor);
   beginShape();
-  vertex(100, height / 3);
+  vertex(100, height / 2 + 30);
   //const steps = 10;
   /*for (let i = 0; i < steps + 1; i++) {
     let x = (width * i) / steps;
@@ -55,13 +55,13 @@ function draw() {
     vertex(x, y);
   } */
     vertex(250, height / 5);
-    vertex(300, height / 3);
+    vertex(300, height / 2 + 30);
     endShape(CLOSE);
     fill(pyramidSideColor);
     beginShape();
-    vertex(300, height / 3);
+    vertex(300, height / 2 + 50);
     vertex(250, height / 5);
-    vertex(350, height / 3 - 30);
+    vertex(350, height / 2 + 10);
   endShape(CLOSE);
 
   const trees = 5*random();
