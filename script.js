@@ -6,7 +6,13 @@ const skyColor = "#cdd8e6";
 const hillColor = "#1e273f";
 const treeColor = "#3d1803";
 const leaveColor = "#233610";
-const sunColor = [254,254,254,80]; // with opacity
+const sunColor = [254, 254, 254, 80]; // with opacity
+
+const pyramidColor = "af9071";
+const pyramidSideColor = "7e6d59";
+const skyColor = "b9d0e8";
+const groundColor = "af9d7f";
+const smallWallColor = "fefef8";
 
 function preload() {
     // runs before setup 
@@ -35,28 +41,33 @@ function draw() {
   ellipse(mouseX,0,100,100);
   ellipse(mouseX,0,200,200);
 
-  fill(grassColor);
+  fill(groundColor);
   rect(0, height / 2, width, height / 2);
 
   // An example of drawing an irregular polygon
-  fill(hillColor);
+  fill(pyramidColor);
   beginShape();
-  vertex(0, height / 2);
-  const steps = 10;
-  for (let i = 0; i < steps + 1; i++) {
+  vertex(100, height / 3);
+  //const steps = 10;
+  /*for (let i = 0; i < steps + 1; i++) {
     let x = (width * i) / steps;
     let y =
       height / 2 - (random() * random() * random() * height) / 8 - height / 50;
     vertex(x, y);
-  }
-  vertex(width, height / 2);
+  } */
+    vertex(250, height / 5);
+    vertex(300, height / 3);
+    fill(pyramidSideColor);
+    vertex(300, height / 3);
+    vertex(250, height / 5);
+    vertex(350, height / 3 - 30);
   endShape(CLOSE);
 
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
     drawLtree();
   }
-
+/*
   // An example of recursively drawing an L-tree 
   function drawLtree() {
     let x = width * random();
@@ -121,5 +132,6 @@ function draw() {
     circle(x2, y2, 3);
 
   }
+  */
 }
 
