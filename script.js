@@ -56,6 +56,7 @@ function draw() {
   } */
     vertex(250, height / 5);
     vertex(300, height / 3);
+    endShape(CLOSE);
     fill(pyramidSideColor);
     beginShape();
     vertex(300, height / 3);
