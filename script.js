@@ -87,15 +87,13 @@ function draw() {
     }
 
     function drawLimbs(x, y, angle) {
-        rotate(30);
-        rect(x + 5, y, 20, 3);
-        rotate(330);
-        rect(x - 5, y, 20, 3);
+        stroke(skinColor);
+        strokeWeight(5);
+        line(x + 5, y, x + 15, y + random(5));
+        line(x - 5, y, x - 15, y - random(5));
         fill(pantsColor);
-        rotate(150);
-        rect(x + 5, y - 10, 20, 3);
-        rotate(210);
-        rect(x - 5, y - 10, 20, 3);
+        rect(x + 5, y + 10, x + random(3), y + 15);
+        rect(x - 5, y + 10, x - random(3), y + 15);
     }
 /*
   // An example of recursively drawing an L-tree 
@@ -112,9 +110,9 @@ function draw() {
     strokeWeight(branch_weight);
     let v = p5.Vector.fromAngle(angle, s);
     let vx = v.x;
-    let vy = v.y; 
+    let vy = v.y;
     let x1 = x;
-    let y1 = y; 
+    let y1 = y;
     let x2 = x1 + vx;
     let y2 = y1 + vy;
     line(x1, y1, x2, y2);
