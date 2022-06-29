@@ -12,6 +12,9 @@ const pyramidSideColor = "#7e6d59";
 const theSkyColor = "#b9d0e8";
 const groundColor = "#af9d7f";
 const smallWallColor = "#fefef8";
+const shirtColor = "#ff0000";
+const pantsColor = "#0000ff";
+const skinColor = "#815044";
 
 function preload() {
     // runs before setup 
@@ -54,7 +57,7 @@ function draw() {
 
     drawPyramidAt(100, 0);
     drawPyramidAt(300, 30)
-    drawHuman(width - 50, height / 1.5);
+    drawHuman(width - 50, height / 1.1);
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
     //drawLtree();
@@ -76,7 +79,9 @@ function draw() {
     }
 
     function drawHuman(x, y) {
+        fill(shirtColor);
         ellipse(x, y, 10, 20);
+        fill(skinColor);
         ellipse(x, y + 10, 5, 5);
         drawLimbs(x, y);
     }
@@ -86,6 +91,7 @@ function draw() {
         rect(x + 5, y, 20, 3);
         rotate(330);
         rect(x - 5, y, 20, 3);
+        fill(pantsColor);
         rotate(150);
         rect(x + 5, y - 10, 20, 3);
         rotate(210);
