@@ -16,6 +16,8 @@ const shirtColor = "#ff0000";
 const pantsColor = "#0000ff";
 const skinColor = "#815044";
 
+let scale;
+
 function preload() {
     // runs before setup 
     // use if you want to load any large files and want to make sure they load before setup()
@@ -23,7 +25,8 @@ function preload() {
 
 function setup() {
   createCanvas(800, 400);
-  createButton("reroll").mousePressed(() => seed++);
+    createButton("reroll").mousePressed(() => seed++);
+    scale = 1;
 }
 
 function draw() {
@@ -79,21 +82,22 @@ function draw() {
     }
 
     function drawHuman(x, y) {
+        scale = 2;
         fill(shirtColor);
-        ellipse(x, y, 10, 20);
+        ellipse(x, y, 10 * scale, 20 * scale);
         fill(skinColor);
-        ellipse(x, y - 10, 5, 5);
+        ellipse(x, y - 10, 5 * scale, 5 * scale);
         drawLimbs(x, y);
     }
 
-    function drawLimbs(x, y, angle) {
+    function drawLimbs(x, y) {
         stroke(skinColor);
         strokeWeight(5);
-        line(x + 5, y, x + 15, y + random(5));
-        line(x - 5, y, x - 15, y - random(5));
+        line(x + 5, y, x + 15 + (1 * scale), y + random(5));
+        line(x - 5, y, x - 15 - (1 * scale), y - random(5));
         fill(pantsColor);
-        line(x + 5, y + 10, x + random(3), y + 15);
-        line(x - 5, y + 10, x - random(3), y + 15);
+        line(x + 5, y + 10, x + random(3), y + 15 + (1 * scale));
+        line(x - 5, y + 10, x - random(3), y + 15 + (1 * scale));
     }
 /*
   // An example of recursively drawing an L-tree 
