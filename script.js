@@ -82,7 +82,7 @@ function draw() {
         fill(shirtColor);
         ellipse(x, y, 10, 20);
         fill(skinColor);
-        ellipse(x, y + 10, 5, 5);
+        ellipse(x, y - 10, 5, 5);
         drawLimbs(x, y);
     }
 
@@ -92,8 +92,8 @@ function draw() {
         line(x + 5, y, x + 15, y + random(5));
         line(x - 5, y, x - 15, y - random(5));
         fill(pantsColor);
-        rect(x + 5, y + 10, x + random(3), y + 15);
-        rect(x - 5, y + 10, x - random(3), y + 15);
+        line(x + 5, y + 10, x + random(3), y + 15);
+        line(x - 5, y + 10, x - random(3), y + 15);
     }
 /*
   // An example of recursively drawing an L-tree 
