@@ -16,7 +16,7 @@ const shirtColor = "#ff0000";
 const pantsColor = "#0000ff";
 const skinColor = "#815044";
 
-let scale;
+let scale, xpos, ypos;
 
 function preload() {
     // runs before setup 
@@ -27,6 +27,8 @@ function setup() {
   createCanvas(800, 400);
     createButton("reroll").mousePressed(() => seed++);
     scale = 1;
+    xpos = width - 50;
+    ypos = height / 1.1;
 }
 
 function draw() {
@@ -60,12 +62,26 @@ function draw() {
 
     drawPyramidAt(100, 0);
     drawPyramidAt(300, 30)
-    drawHuman(width - 50, height / 1.1);
+    keyPressed();
+    drawHuman(xpos, ypos);
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
     //drawLtree();
   }
-
+    function keyPressed() {
+        if (key == "W") {
+            ypos -= 1;
+        }
+        if (key == "A") {
+            xpos -= 1;
+        }
+        if (key == "S") {
+            ypos += 1;
+        }
+        if (key == "D") {
+            xpos += 1;
+        }
+    }
     function drawPyramidAt(x, offset) {
         fill(pyramidColor);
         beginShape();
