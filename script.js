@@ -86,15 +86,15 @@ function draw() {
         fill(shirtColor);
         ellipse(x, y, 10 * scale, 20 * scale);
         fill(skinColor);
-        ellipse(x, y - 10, 5 * scale, 5 * scale);
+        ellipse(x, y - (10 * scale), 5 * scale, 5 * scale);
         drawLimbs(x, y);
     }
 
     function drawLimbs(x, y) {
         stroke(skinColor);
         strokeWeight(5);
-        line(x + 5, y, x + 15 + (1 * scale), y + random(5));
-        line(x - 5, y, x - 15 - (1 * scale), y - random(5));
+        line(x + (5 * scale), y, x + (15 * scale), y + random(5));
+        line(x - (5 * scale), y, x - (15 * scale), y - random(5));
         fill(pantsColor);
         line(x + 5, y + 10, x + random(3), y + 15 + (1 * scale));
         line(x - 5, y + 10, x - random(3), y + 15 + (1 * scale));
