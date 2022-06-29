@@ -62,7 +62,7 @@ function draw() {
 
     drawPyramidAt(100, 0);
     drawPyramidAt(300, 30)
-    keyPressed();
+    keyIsPressed();
     drawHuman(xpos, ypos);
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
@@ -102,7 +102,7 @@ function draw() {
         fill(shirtColor);
         ellipse(x, y, 10 * scale, 20 * scale);
         fill(skinColor);
-        ellipse(x, y - (10 * scale), 5 * scale, 5 * scale);
+        ellipse(x, y - (10 * scale), 7 * scale, 7 * scale);
         drawLimbs(x, y);
     }
 
@@ -111,7 +111,7 @@ function draw() {
         strokeWeight(5);
         line(x + (5 * scale), y, x + (15 * scale), y + random(5));
         line(x - (5 * scale), y, x - (15 * scale), y - random(5));
-        fill(pantsColor);
+        stroke(pantsColor);
         line(x + 5, y + 10, x + 5 + random(3), y + 15 + (1 * scale));
         line(x - 5, y + 10, x - 5 - random(3), y + 15 + (1 * scale));
     }
