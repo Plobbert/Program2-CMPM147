@@ -12,9 +12,12 @@ const pyramidSideColor = "#7e6d59";
 const theSkyColor = "#b9d0e8";
 const groundColor = "#af9d7f";
 const smallWallColor = "#fefef8";
-const shirtColor = "#ff0000";
-const pantsColor = "#0000ff";
-const skinColor = "#815044";
+let shirtColor = "#ff0000";
+let pantsColor = "#0000ff";
+const skinColor = "#a57167";
+
+const shirtColors = ["#ff0381", "#a7a630", "#732743", "#89d273"];
+const pantsColors = ["#387ff8", "#37df02", "#da8403", "#d838a9"];
 
 let scale, xpos, ypos;
 
@@ -26,7 +29,7 @@ function preload() {
 function setup() {
   createCanvas(800, 400);
     createButton("reroll").mousePressed(() => seed++);
-    scale = 1;
+    scale = 2;
     xpos = width - 50;
     ypos = height / 1.1;
 }
@@ -51,45 +54,32 @@ function draw() {
   fill(groundColor);
   rect(0, height / 2, width, height / 2);
 
-  // An example of drawing an irregular polygon
-  //const steps = 10;
-  /*for (let i = 0; i < steps + 1; i++) {
-    let x = (width * i) / steps;
-    let y =
-      height / 2 - (random() * random() * random() * height) / 8 - height / 50;
-    vertex(x, y);
-  } */
-
     drawPyramidAt(100, 0);
-    drawPyramidAt(300, 30)
-    keyIsPressed();
-    drawHuman(xpos, ypos);
-  const trees = 5*random();
-  for (let i = 0; i < trees; i++) {
-    //drawLtree();
-  }
-    function keyIsPressed() {
-        if (key == "w") {
-            ypos -= 1;
-        }
-        if (key == "a") {
-            xpos -= 1;
-        }
-        if (key == "s") {
-            ypos += 1;
-        }
-        if (key == "d") {
-            xpos += 1;
-        }
+    drawPyramidAt(300, 30);
+    xpos -= (xpos - mouseX) / 100;
+    if (ypos - ((ypos - mouseY) / 100) > height / 2) {
+        ypos -= (ypos - mouseY) / 100;
     }
+    drawHuman(xpos, ypos);
+    drawHuman(random(width), random(height / 2, height));
+    drawHuman(random(width), random(height / 2, height));
+
     function drawPyramidAt(x, offset) {
-        fill(pyramidColor);
+        if (mouseX > x + 100) {
+            fill(pyramidSideColor);
+        } else {
+            fill(pyramidColor);
+        }
         beginShape();
         vertex(x, height / 2 + 30 + offset);
         vertex(x + 100, height / 5 + offset);
         vertex(x + 150, height / 2 + 30 + offset);
         endShape(CLOSE);
-        fill(pyramidSideColor);
+        if (mouseX > x + 100) {
+            fill(pyramidColor);
+        } else {
+            fill(pyramidSideColor);
+        }
         beginShape();
         vertex(x + 150, height / 2 + 30 + offset);
         vertex(x + 100, height / 5 + offset);
@@ -98,22 +88,22 @@ function draw() {
     }
 
     function drawHuman(x, y) {
-        scale = 2;
-        fill(shirtColor);
+        fill(random(shirtColors));
         ellipse(x, y, 10 * scale, 20 * scale);
         fill(skinColor);
-        ellipse(x, y - (10 * scale), 7 * scale, 7 * scale);
+        ellipse(x, y - (10 * scale), 10 * scale, 10 * scale);
         drawLimbs(x, y);
     }
 
     function drawLimbs(x, y) {
         stroke(skinColor);
         strokeWeight(5);
-        line(x + (5 * scale), y, x + (15 * scale), y + random(5));
-        line(x - (5 * scale), y, x - (15 * scale), y - random(5));
-        stroke(pantsColor);
-        line(x + 5, y + 10, x + 5 + random(3), y + 15 + (1 * scale));
-        line(x - 5, y + 10, x - 5 - random(3), y + 15 + (1 * scale));
+        line(x + (5 * scale), y - 4, x + (15 * scale), y + random(10));
+        line(x - (5 * scale), y - 4, x - (15 * scale), y - random(10));
+        stroke(random(pantsColors));
+        line(x + 5, y + 15, x + 5 + random(5), y + 20 + (1 * scale));
+        line(x - 5, y + 15, x - 5 - random(5), y + 20 + (1 * scale));
+        strokeWeight(0);
     }
 /*
   // An example of recursively drawing an L-tree 
