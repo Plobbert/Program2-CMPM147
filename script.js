@@ -68,17 +68,17 @@ function draw() {
   for (let i = 0; i < trees; i++) {
     //drawLtree();
   }
-    function keyPressed() {
-        if (key == "W") {
+    function keyIsPressed() {
+        if (key == "w") {
             ypos -= 1;
         }
-        if (key == "A") {
+        if (key == "a") {
             xpos -= 1;
         }
-        if (key == "S") {
+        if (key == "s") {
             ypos += 1;
         }
-        if (key == "D") {
+        if (key == "d") {
             xpos += 1;
         }
     }
@@ -112,8 +112,8 @@ function draw() {
         line(x + (5 * scale), y, x + (15 * scale), y + random(5));
         line(x - (5 * scale), y, x - (15 * scale), y - random(5));
         fill(pantsColor);
-        line(x + 5, y + 10, x + random(3), y + 15 + (1 * scale));
-        line(x - 5, y + 10, x - random(3), y + 15 + (1 * scale));
+        line(x + 5, y + 10, x + 5 + random(3), y + 15 + (1 * scale));
+        line(x - 5, y + 10, x - 5 - random(3), y + 15 + (1 * scale));
     }
 /*
   // An example of recursively drawing an L-tree 
