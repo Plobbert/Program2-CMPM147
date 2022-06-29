@@ -54,7 +54,7 @@ function draw() {
 
     drawPyramidAt(100, 0);
     drawPyramidAt(300, 30)
-
+    drawHuman(width - 50, height / 1.5);
   const trees = 5*random();
   for (let i = 0; i < trees; i++) {
     //drawLtree();
@@ -64,15 +64,32 @@ function draw() {
         fill(pyramidColor);
         beginShape();
         vertex(x, height / 2 + 30 + offset);
-        vertex(x + 150, height / 5 + offset);
-        vertex(x + 200, height / 2 + 30 + offset);
+        vertex(x + 100, height / 5 + offset);
+        vertex(x + 150, height / 2 + 30 + offset);
         endShape(CLOSE);
         fill(pyramidSideColor);
         beginShape();
-        vertex(x + 200, height / 2 + 30 + offset);
-        vertex(x + 150, height / 5 + offset);
-        vertex(x + 250, height / 2 + 10 + offset);
+        vertex(x + 150, height / 2 + 30 + offset);
+        vertex(x + 100, height / 5 + offset);
+        vertex(x + 200, height / 2 + 10 + offset);
         endShape(CLOSE);
+    }
+
+    function drawHuman(x, y) {
+        ellipse(x, y, 10, 20);
+        ellipse(x, y + 10, 5, 5);
+        drawLimbs(x, y);
+    }
+
+    function drawLimbs(x, y, angle) {
+        rotate(30);
+        rect(x + 5, y, 20, 3);
+        rotate(330);
+        rect(x - 5, y, 20, 3);
+        rotate(150);
+        rect(x + 5, y - 10, 20, 3);
+        rotate(210);
+        rect(x - 5, y - 10, 20, 3);
     }
 /*
   // An example of recursively drawing an L-tree 
